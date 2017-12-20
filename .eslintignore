@@ -1,0 +1,5 @@
+.storybook
+scripts
+stories
+node_modules
+build
