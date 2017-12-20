@@ -27,7 +27,6 @@ function createPackageFile() {
     .then(packageData => {
       const minimalPackage = {
         ...packageData,
-        name: 'blake-dietz-ts-ui-2',
         main: './index.js',
         module: './index.es.js',
         private: false,
