@@ -39,11 +39,11 @@ workflows:
       - build:
           requires:
             - lint
-            filters:
-              branches:
-                only:
-                  - develop
-                  - /feature.*/
+          filters:
+            branches:
+              only:
+                - develop
+                - /feature.*/
   build-lint-and-deploy:
     jobs:
       - lint
@@ -53,7 +53,7 @@ workflows:
       - deploy:
           requires:
             - build
-            filters:
-              branches:
-                only:
-                  - master
+          filters:
+            branches:
+              only:
+                - master
