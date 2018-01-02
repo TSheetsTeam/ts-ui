@@ -21,6 +21,8 @@ jobs:
         enabled: true
     working_directory: ~/repo
     steps:
+      - checkout
+      - run: npm install
       - run: npm run lint
 
   deploy:
@@ -44,12 +46,21 @@ workflows:
               only:
                 - develop
                 - /feature.*/
+
   build-lint-and-deploy:
     jobs:
-      - build
+      - build:
+          filters:
+            branches:
+              only:
+                - master
       - lint:
           requires:
             - build
+          filters:
+            branches:
+              only:
+                - master
       - deploy:
           requires:
             - lint
