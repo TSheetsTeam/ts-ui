@@ -13,6 +13,7 @@
     "deploy:storybook": "storybook-to-ghpages",
     "ci-deploy:storybook": "git config --global user.email $GH_EMAIL && git config --global user.name $GH_NAME && storybook-to-ghpages",
     "lint": "eslint . --cache && echo \"eslint: no lint errors\"",
+    "lint:fix": "eslint . --cache --fix && echo \"eslint: There are no lint errors that could not be fixed\"",
     "postrelease": "npm publish build --tag next",
     "prebuild": "rimraf build",
     "prettier": "find . -name \"*.js\" | grep -v -f .eslintignore | xargs prettier --write",
