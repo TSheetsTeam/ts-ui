@@ -35,25 +35,25 @@ workflows:
   version: 2
   build-and-lint:
     jobs:
-      - lint
-      - build:
-          requires:
-            - lint
-            filters:
-              branches:
-                only:
-                  - develop
-                  - /feature.*/
-  build-lint-and-deploy:
-    jobs:
-      - lint
-      - build:
-          requires:
-            - lint
-      - deploy:
+      - build
+      - lint:
           requires:
             - build
-            filters:
-              branches:
-                only:
-                  - master
+          filters:
+            branches:
+              only:
+                - develop
+                - /feature.*/
+  build-lint-and-deploy:
+    jobs:
+      - build
+      - lint:
+          requires:
+            - build
+      - deploy:
+          requires:
+            - lint
+          filters:
+            branches:
+              only:
+                - master
