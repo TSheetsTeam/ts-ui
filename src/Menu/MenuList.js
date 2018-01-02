@@ -1,1 +1,2 @@
-export { default } from 'material-ui/Menu';
+import { MenuList } from 'material-ui/Menu';
+export default MenuList;
