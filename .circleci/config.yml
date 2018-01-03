@@ -17,6 +17,9 @@ jobs:
       - run: npm run build
 
   lint:
+    docker:
+      # specify the version you desire here
+      - image: circleci/node:9.3.0
     machine:
         enabled: true
     working_directory: ~/repo
@@ -26,6 +29,9 @@ jobs:
       - run: npm run lint
 
   deploy:
+    docker:
+      # specify the version you desire here
+      - image: circleci/node:9.3.0
     machine:
         enabled: true
     working_directory: ~/repo
